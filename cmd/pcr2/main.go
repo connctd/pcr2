@@ -22,6 +22,7 @@ func main() {
 		After: func(ctx *cli.Context) error {
 			return device.Close()
 		},
+		EnableBashCompletion: true,
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:  "port",
