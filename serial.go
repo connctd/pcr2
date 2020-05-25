@@ -57,7 +57,6 @@ func (s *SerialTransport) Write(in string) (string, error) {
 			break
 		}
 	}
-
 	outStr := string(buf[:nc])
 	outStr = strings.TrimRight(outStr, "\r\n")
 	if outStr == strCommandNotFound {
