@@ -28,6 +28,9 @@ func main() {
 				Name:  "port",
 				Usage: "Serial port",
 			},
+			&cli.BoolFlag{
+				Name: "debug",
+			},
 		},
 		Before: openPcr2,
 		Action: func(c *cli.Context) error {
@@ -149,6 +152,9 @@ func openPcr2(ctx *cli.Context) error {
 	transp, err := pcr2.Open(serialPort)
 	if err != nil {
 		return fmt.Errorf("Failed to open serial port transport: %w", err)
+	}
+	if ctx.Bool("debug") {
+		transp.Debug(true)
 	}
 	device = pcr2.NewDevice(transp)
 	return nil
