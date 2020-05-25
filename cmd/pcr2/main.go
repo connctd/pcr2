@@ -98,7 +98,7 @@ func main() {
 							name := c.Args().First()
 							out, err := device.LoraGet(name)
 							if err == nil {
-								fmt.Sprintf("%s\n", out)
+								fmt.Printf("%s\n", out)
 							}
 							return err
 						},
@@ -118,7 +118,7 @@ func main() {
 							param = strings.TrimRight(param, " ")
 							out, err := device.LoraSet(name, param)
 							if err == nil {
-								fmt.Sprintf("%s\n", out)
+								fmt.Printf("%s\n", out)
 							}
 							return err
 						},
