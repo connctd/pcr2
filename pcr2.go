@@ -2,6 +2,7 @@ package pcr2
 
 import (
 	"fmt"
+	"io"
 )
 
 type Device struct {
@@ -12,6 +13,10 @@ func NewDevice(transp Transport) *Device {
 	return &Device{
 		transp: transp,
 	}
+}
+
+func (d *Device) Close() error {
+	return d.transp.Close()
 }
 
 func (d *Device) Get(name string) (string, error) {
@@ -64,5 +69,6 @@ func modeIntToString(in string) string {
 }
 
 type Transport interface {
+	io.Closer
 	Write(in string) (string, error)
 }

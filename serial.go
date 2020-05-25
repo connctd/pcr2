@@ -64,3 +64,7 @@ func (s *SerialTransport) Write(in string) (string, error) {
 	}
 	return outStr, nil
 }
+
+func (s *SerialTransport) Close() error {
+	return s.port.Close()
+}

@@ -18,7 +18,10 @@ var (
 func main() {
 	app := &cli.App{
 		Name:  "pcr2",
-		Usage: "Configure a PCR2 people counter",
+		Usage: "Configure a PCR2 people counter, see https://www.parametric.ch/docs/pcr2/pcr2_cli_v32x for available commands",
+		After: func(ctx *cli.Context) error {
+			return device.Close()
+		},
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:  "port",
