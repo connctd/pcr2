@@ -44,7 +44,7 @@ func (d *Device) LoraSet(name, param string) (string, error) {
 }
 
 func (d *Device) Clear() error {
-	_, err := d.transp.Write(fmt.Sprintf(" %s\r\n", "clear"))
+	_, err := d.transp.Write("clear\r\n")
 	return err
 }
 
