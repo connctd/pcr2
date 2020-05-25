@@ -15,3 +15,8 @@ some convience over using something like miniterm
 * Read device temperature`pcr2 get temp`
 * Set radar sensitivity `pcr2 set sens 50`
 * Set LoRa AppKey `pcr2 lora set appkey <appkey>`
+
+## Known issues
+
+* `clear` command does not work. My test device reports that this command is not known. Might be outdated firmware
+* `l1`,`l2`,`r1`,`r2` commands do not work. Probably an outdated firmware on the test device.
