@@ -64,7 +64,7 @@ func modeIntToString(in string) string {
 	case "3":
 		return "[3] Capacity Alert Mode"
 	default:
-		return "Unknown mode"
+		return fmt.Sprintf("Unknown mode: %s", in)
 	}
 }
 
